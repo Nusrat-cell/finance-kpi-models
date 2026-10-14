@@ -1,0 +1,7 @@
+product_id,product_name,product_line,standard_cost_eur,list_price_eur
+P10,Supercontinuum Compact,Supercontinuum,21000.0,42000.0
+P11,Supercontinuum High Power,Supercontinuum,48000.0,89000.0
+P20,Femtosecond Oscillator,Ultrafast,36000.0,65000.0
+P21,Femtosecond Amplifier,Ultrafast,52000.0,98000.0
+P30,"Photonic Crystal Fiber, 10 m",Fiber,900.0,2400.0
+P40,"Service contract, 12 months",Service,2500.0,9000.0

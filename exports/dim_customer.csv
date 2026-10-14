@@ -1,0 +1,9 @@
+customer_id,customer_name,country,segment,payment_terms_days
+C001,Nordic Quantum Lab,DK,Research,30
+C002,Uppsala Photonics Institute,SE,Research,30
+C003,Rhein Microscopy GmbH,DE,Industrial,45
+C004,Boston BioImaging Inc,US,Medical,60
+C005,Kyoto Precision Optics,JP,Industrial,60
+C006,Lyon Semiconductor SA,FR,Industrial,45
+C007,Delft Space Systems,NL,Research,30
+C008,California Ophthalmics,US,Medical,60

@@ -1,0 +1,29 @@
+// Power BI measures for the star schema in exports/.
+// Load the dim_ and fct_ CSVs, relate fct_invoice_lines to dim_customer,
+// dim_product and dim_date (invoice_date -> date), and mark dim_date as the
+// date table. These measures then work on any slicer: month, segment,
+// country, product line.
+
+Revenue DKK = SUM ( fct_invoice_lines[revenue_dkk] )
+
+Gross Profit DKK = SUM ( fct_invoice_lines[gross_profit_dkk] )
+
+Gross Margin % = DIVIDE ( [Gross Profit DKK], [Revenue DKK] )
+
+Revenue PY = CALCULATE ( [Revenue DKK], SAMEPERIODLASTYEAR ( dim_date[date] ) )
+
+Revenue YTD = TOTALYTD ( [Revenue DKK], dim_date[date] )
+
+Revenue MoM % =
+VAR prev = CALCULATE ( [Revenue DKK], DATEADD ( dim_date[date], -1, MONTH ) )
+RETURN DIVIDE ( [Revenue DKK] - prev, prev )
+
+Credit Notes DKK =
+CALCULATE ( [Revenue DKK], fct_invoice_lines[is_credit_note] = 1 )
+
+Open Receivables DKK = SUM ( fct_receivables[open_dkk] )
+
+Overdue Receivables DKK =
+CALCULATE ( [Open Receivables DKK], fct_receivables[status] = "Overdue" )
+
+Overdue Share % = DIVIDE ( [Overdue Receivables DKK], [Open Receivables DKK] )
